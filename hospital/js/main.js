@@ -11,4 +11,27 @@ pDom.innerHTML+= `<li>"${pacient.nombre}"</li><li>"${pacient.apellidos}"</li><li
 
 printAllpacients(pacientes,ulPacientes);
 
+const edadMin = document.querySelector('#min');
+const edadMax = document.querySelector('#max');
+const btnEdad = document.querySelector('#btnEdad');
 
+btnEdad.addEventListener('click',filtrarEdad);
+
+function filtrarEdad () {
+
+    ulPacientes.innerHTML = " ";
+    
+    let max = edadMax.value;
+    let min = edadMin.value;
+
+    if (max !== " " && min !== " ") {
+        let pacientesPorEdad = filterByAge(pacientes,Number(min),Number(max));
+        printAllpacients(pacientesPorEdad,ulPacientes);
+    } else {
+        printAllpacients(pacientes,ulPacientes);
+    }
+}
+
+function filterByAge (list,pMin,pMax) {
+    return list.filter(paciente => paciente.edad >=pMin && paciente.edad <= pMax);
+}

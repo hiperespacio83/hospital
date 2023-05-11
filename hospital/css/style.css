@@ -18,6 +18,7 @@ img {
 #filtrado {
     width: 30%;
     height: auto;
+    padding: 10px;
 }
 #listado {
     width: 70%;
