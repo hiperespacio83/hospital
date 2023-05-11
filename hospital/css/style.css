@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+#pacientes h2 {
+    text-align: center;
+}
+.flex {
+    display: flex;
+    height: auto;
+}
+#filtrado {
+    width: 30%;
+    height: auto;
+}
+#listado {
+    width: 70%;
+    height: auto;
+}
+article {
+    border: 1px solid gray;
+}
