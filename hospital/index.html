@@ -16,13 +16,32 @@
 
     <section id="pacientes">
         <h2>Pacientes</h2>
+
         <div class="flex">
             <article id="filtrado">
 
-                <div>
-                    <input type="number" id="min" min="0" max="100" placeholder="Introduzca la edad mínima">
-                    <input type="number" id="max" min="0" max="100" placeholder="Introduzca la edad máxima">
-                    <button id="btnEdad">Filtrar por edad</button>
+                <div class="card mt-3 p-3">
+                    <input class="m-3" type="number" id="min" min="0" max="100" placeholder="Introduzca la edad mínima">
+                    <input class="m-3" type="number" id="max" min="0" max="100" placeholder="Introduzca la edad máxima">
+                    <button class="m-3" id="btnEdad">Filtrar por edad</button>
+                </div>
+                <div class="card mt-3 p-3">
+                    <select name="" id="diagnostico">
+                        <option value="">Selecciona diagnóstico</option>
+                        <option value="gripe">Gripe</option>
+                        <option value="alzheimer">Alzheimer</option>
+                        <option value="luxacion">Luxacion</option>
+                        <option value="hipertension">Hipertension</option>
+                        <option value="gastroenteritis">Migraña</option>
+                        <option value="esguince">Esguince</option>
+                        <option value="otitis">Otitis</option>
+                        <option value="covid">Covid</option>
+                        <option value="cistitis">Cistitis</option>
+                        <option value="gastritis">Gastritis</option>
+                        <option value="fractura">Fractura</option>
+                        <option value="apendicitis">Apendicitis</option>
+                        <option value="neumonia">Neumonia</option>
+                    </select>
                 </div>
 
             </article>
@@ -34,6 +53,7 @@
 
             </article>
         </div>
+
 
     </section>
 

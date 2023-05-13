@@ -27,3 +27,19 @@ img {
 article {
     border: 1px solid gray;
 }
+@media (max-width:768px) {
+    .flex {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    #filtrado {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+    #listado {
+        width: 100%;
+        height: auto;
+    }
+}
