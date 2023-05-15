@@ -17,9 +17,15 @@ const edadMax = document.querySelector('#max');
 const btnEdad = document.querySelector('#btnEdad');
 
 
-btnEdad.addEventListener('click', filtrarEdad);
 
-function filtrarEdad() {
+/* Ejercicio de filtrar por edad*/
+
+
+
+
+btnEdad.addEventListener('click', getClick);
+
+function getClick() {
 
     let max = edadMax.value;
     let min = edadMin.value;
@@ -36,11 +42,18 @@ function filterByAge(list, pMin, pMax) {
     return list.filter(paciente => paciente.edad >= pMin && paciente.edad <= pMax);
 }
 
+
+
+/* ejercicio de filtrar por diagnostico*/
+
+
+
+
 const diagnostico = document.querySelector('#diagnostico');
 
-diagnostico.addEventListener('change', filtrarDiagnostico);
+diagnostico.addEventListener('change', getChange);
 
-function filtrarDiagnostico(event) {
+function getChange(event) {
 
 
     let diagnosticoFiltrado = event.target.value;
@@ -61,18 +74,36 @@ function filtrarPorDiagnostico(list, diagnostico) {
     return list.filter(paciente => paciente.diagnostico === diagnostico)
 }
 
+
+
+/* ejercicio de filtrar por nombre, apellidos o seguridad social*/
+
+
+
+
 const input = document.querySelector('#input');
 
-input.addEventListener('input', filtrarPorNombre);
+input.addEventListener('input', getInput);
 
-function filtrarPorNombre(event) {
-    if (input.value === "") {
+function getInput(event) {
+
+    let name = event.target.value;
+
+    if (name === "") {
+
         printAllpacients(pacientes, ulPacientes);
-    } else {
-        let busqueda = event.target.value;
-        // let busqueda2 = pacientes.includes(busqueda.toLowerCase());
-        let listaPorNombre = pacientes.filter(paciente => paciente.nombre.toLowerCase().includes(busqueda.toLowerCase()) || paciente.apellidos.toLowerCase().includes(busqueda.toLowerCase()) || paciente.seguridadSocial.toLowerCase().includes(busqueda.toLowerCase()));
 
-        printAllpacients(listaPorNombre, ulPacientes);
+    } else {
+
+        let pacientsByName = filterByName(pacientes, name);
+
+        printAllpacients(pacientsByName, ulPacientes);
+
     }
+}
+
+function filterByName(list, name) {
+
+    return list.filter(element => element.nombre.toLowerCase().includes(name.toLowerCase()) || element.apellidos.toLowerCase().includes(name.toLowerCase()) || element.seguridadSocial.toLowerCase().includes(name.toLowerCase()));
+
 }
