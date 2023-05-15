@@ -2,6 +2,7 @@ const articleLista = document.querySelector('#listado');
 const ulPacientes = document.querySelector('#ullistado');
 
 function printAllpacients(pLista, pDom) {
+    pDom.innerHTML = " ";
     pLista.forEach(paciente => printOnePacient(paciente, pDom));
 }
 
@@ -19,8 +20,6 @@ const btnEdad = document.querySelector('#btnEdad');
 btnEdad.addEventListener('click', filtrarEdad);
 
 function filtrarEdad() {
-
-    ulPacientes.innerHTML = " ";
 
     let max = edadMax.value;
     let min = edadMin.value;
@@ -43,7 +42,6 @@ diagnostico.addEventListener('change', filtrarDiagnostico);
 
 function filtrarDiagnostico(event) {
 
-    ulPacientes.innerHTML=" ";
 
     let diagnosticoFiltrado = event.target.value;
 
@@ -61,4 +59,20 @@ function filtrarDiagnostico(event) {
 
 function filtrarPorDiagnostico(list, diagnostico) {
     return list.filter(paciente => paciente.diagnostico === diagnostico)
+}
+
+const input = document.querySelector('#input');
+
+input.addEventListener('input', filtrarPorNombre);
+
+function filtrarPorNombre(event) {
+    if (input.value === "") {
+        printAllpacients(pacientes, ulPacientes);
+    } else {
+        let busqueda = event.target.value;
+        // let busqueda2 = pacientes.includes(busqueda.toLowerCase());
+        let listaPorNombre = pacientes.filter(paciente => paciente.nombre.toLowerCase().includes(busqueda.toLowerCase()) || paciente.apellidos.toLowerCase().includes(busqueda.toLowerCase()) || paciente.seguridadSocial.toLowerCase().includes(busqueda.toLowerCase()));
+
+        printAllpacients(listaPorNombre, ulPacientes);
+    }
 }
